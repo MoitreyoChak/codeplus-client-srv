@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary: color-mix(in oklab, var(--color-black)
+            /* #000 = #000000 */
+            90%, transparent);
+    --color-secondary: oklch(71.5% 0.143 215.221)
+}
