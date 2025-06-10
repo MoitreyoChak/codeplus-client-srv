@@ -32,9 +32,9 @@ const question = {
         _id: "67eae85029508512fd77ce6a",
       },
       {
-        input: "nums = [2,7,11,15], target = 9",
-        output: "[0,1]",
-        explanation: "Because nums[0] + nums[1] == 9, we return [0, 1].",
+        input: "nums = [3,10,2,8], target = 5",
+        output: "[0,2]",
+        explanation: "Because nums[0] + nums[2] == 5, we return [0, 2].",
         _id: "67eae85029508512fd77ce6a",
       },
     ],
@@ -44,17 +44,44 @@ const question = {
       "-109 <= target <= 109",
     ],
     testcases: [
-      {
-        input: "nums = [2,7,11,15], target = 9",
-        expectedOutput: "[0,1]",
-        _id: "67eae85029508512fd77ce6b",
-      },
-      {
-        input: "nums = [2,7,11,15], target = 13",
-        expectedOutput: "[0,2]",
-        _id: "67eae85029508512fd77ce6c",
-      },
+      [
+        {
+          key: "nums",
+          label: "Array (nums)",
+          val: "[2,7,11,15]",
+          type: "array",
+        },
+        {
+          key: "target",
+          label: "Target",
+          val: "9",
+          type: "number",
+        },
+        { expectedOutput: "[0,1]" },
+      ],
+      [
+        {
+          key: "nums",
+          label: "Array (nums)",
+          val: "[3,10,2,8]",
+          type: "array",
+        },
+        { key: "target", label: "Target", val: "13", type: "number" },
+        { expectedOutput: "[0,2]" },
+      ],
     ],
+    // testcases: [
+    //   {
+    //     input: "nums = [2,7,11,15], target = 9",
+    //     expectedOutput: "[0,1]",
+    //     _id: "67eae85029508512fd77ce6b",
+    //   },
+    //   {
+    //     input: "nums = [2,7,11,15], target = 13",
+    //     expectedOutput: "[0,2]",
+    //     _id: "67eae85029508512fd77ce6c",
+    //   },
+    // ],
   },
 };
 
@@ -71,11 +98,6 @@ function Test() {
   const [splitPosition, setSplitPosition] = useState(50);
   const [verticalSplitPosition, setVerticalSplitPosition] = useState(50);
 
-  const [testCases, setTestCases] = useState([
-    "2 7 11 15 9",
-    "3 2 4 6",
-    "3 3 6",
-  ]);
   const containerRef = useRef(null);
   const rightPanelRef = useRef(null);
 
@@ -275,7 +297,7 @@ function Test() {
           className="bg-gray-800 border-t border-gray-700 overflow-auto"
           style={{ height: `${100 - verticalSplitPosition}%` }}
         >
-          <TestCases testCases={testCases} setTestCases={setTestCases} />
+          <TestCases TCs={question.data.testcases} />
         </div>
       </div>
     </div>
