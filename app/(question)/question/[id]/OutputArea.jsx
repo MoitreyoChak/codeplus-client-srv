@@ -18,11 +18,29 @@ const OutputArea = ({ output }) => {
                 }
 
             </div>
-            <div className='flex gap-2 '>
+            <div className='flex flex-col gap-5 '>
                 {output.map((ele, i) => (
-                    <div className='bg-slate-700 px-4 py-0.5 rounded' key={i}>
-                        input {i + 1}
+                    <div className='flex gap-5 items-center border-b pb-4'>
+                        <div className=' h-fit w-28 bg-slate-700/40 shadow shadow-black/50 px-4 py-0.5 flex justify-center rounded cursor-pointer' key={i}>
+                            input {i + 1}
+                        </div>
+                        <div className='flex gap-2 w-full'>
+                            <div className='w-1/2 flex flex-col gap-2'>
+                                <p className='text-xs'>Actual Output</p>
+                                <div className='w-full bg-black/30 px-2 py-1'>{
+                                    ele.actualOutput
+                                }</div>
+                            </div>
+
+                            <div className='w-1/2 flex flex-col gap-2'>
+                                <p className='text-xs'>Actual Output</p>
+                                <div className='w-full bg-black/30 px-2 py-1'>{
+                                    ele.actualOutput
+                                }</div>
+                            </div>
+                        </div>
                     </div>
+
                 ))}
             </div>
             <div className=''></div>

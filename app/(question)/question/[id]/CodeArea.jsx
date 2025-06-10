@@ -5,6 +5,19 @@ const CodeArea = () => {
   const [language, setLanguage] = useState("C++");
   const [code, setCode] = useState("");
 
+  const getDefaultTemplate = (lang) => {
+    console.log(lang)
+    if (lang === "Java") {
+      return 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}';
+    } else if (lang === "C") {
+      return '#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}';
+    } else if (lang === "Cpp") {
+      return '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}';
+    } else {
+      return "";
+    }
+  };
+
   useEffect(() => {
     const savedCode = localStorage.getItem(language);
     if (savedCode && savedCode.trim() !== "") {
@@ -14,18 +27,7 @@ const CodeArea = () => {
     }
   }, [language]);
 
-  const getDefaultTemplate = (lang) => {
-    switch (lang) {
-      case "C++":
-        '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}';
-      case "Java":
-        return 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}';
-      case "C":
-        return '#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}';
-      default:
-        return "";
-    }
-  };
+
 
   const saveToLocalStorage = () => {
     localStorage.setItem(language, code);
@@ -44,11 +46,11 @@ const CodeArea = () => {
           <span className="text-sm text-gray-400">Language:</span>
           <select
             value={language}
-            onChange={(e) => setLanguage(e.target.value)}
+            onChange={(e) => { console.log(e.target.value); setLanguage(e.target.value) }}
             className="bg-gray-900 text-gray-200 px-3 py-1 rounded border border-gray-700"
           >
             <option>Java</option>
-            <option>C++</option>
+            <option>Cpp</option>
             <option>C</option>
           </select>
         </div>
