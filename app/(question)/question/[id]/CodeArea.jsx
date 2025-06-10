@@ -47,8 +47,8 @@ const CodeArea = () => {
             onChange={(e) => setLanguage(e.target.value)}
             className="bg-gray-900 text-gray-200 px-3 py-1 rounded border border-gray-700"
           >
-            <option>C++</option>
             <option>Java</option>
+            <option>C++</option>
             <option>C</option>
           </select>
         </div>
