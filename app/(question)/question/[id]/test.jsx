@@ -115,8 +115,12 @@ function Test() {
   return (
     <div
       ref={containerRef}
-      className="flex-1 flex bg-gray-900 text-gray-200"
-      style={{ maxHeight: "calc(100vh - 56px)" }}
+      className="flex-1 flex bg-gray-900 text-gray-200 custom-scrollbar"
+      style={{
+        maxHeight: "calc(100vh - 56px)",
+        scrollbarWidth: "auto",
+        scrollbarColor: "#4B5563 #1F2937",
+      }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
@@ -186,7 +190,9 @@ function Test() {
             {/* question statement */}
             {/* <code className="bg-gray-700 px-1 rounded">nums</code> */}
             {question.data.description.map((desc, index) => (
-              <p className="mb-4"> {desc} </p>
+              <p key={index} className="mb-4">
+                {desc}
+              </p>
             ))}
           </div>
 
@@ -249,27 +255,13 @@ function Test() {
         style={{ width: `${100 - splitPosition}%` }}
       >
         <>
-          {/* Code editor header */}
-          <div className="bg-gray-800 p-4 border-b border-gray-700">
-            <div className="flex items-center justify-between">
-              <select className="bg-gray-900 text-gray-200 px-3 py-1 rounded border border-gray-700">
-                <option>Python</option>
-                <option>Java</option>
-                <option>C++</option>
-              </select>
-              <button className="bg-green-600 hover:bg-green-700 px-4 py-1 rounded flex items-center space-x-2">
-                <Send className="w-4 h-4" />
-                <span>Run</span>
-              </button>
-            </div>
-          </div>
-
           {/* Code editor */}
           <div
             className="bg-gray-900 p-4 font-mono overflow-auto"
             style={{ height: `${verticalSplitPosition}%` }}
           >
             <CodeArea />
+            {/* <CodeArea /> */}
           </div>
         </>
         {/* Vertical Resizer */}
