@@ -38,8 +38,8 @@ const CodeArea = () => {
   };
 
   return (
-    <div className="h-full flex flex-col bg-gray-800">
-      <div className="bg-gray-800 p-4 border-b border-gray-700 flex flex-shrink-0 items-center justify-between">
+    <div className="h-full rounded-xl  flex flex-col bg-black/30">
+      <div className="bg-black/30 rounded-t-xl  p-4 border-b border-gray-700 flex flex-shrink-0 items-center justify-between">
         <div className="flex items-center space-x-2">
           <span className="text-sm text-gray-400">Language:</span>
           <select
@@ -60,7 +60,7 @@ const CodeArea = () => {
       {/* Code editor area */}
       <div className="flex-1 p-4">
         <textarea
-          className="w-full h-full resize-none leading-relaxed bg-gray-900 text-gray-200 p-2 rounded border border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 custom-scrollbar"
+          className="w-full h-full resize-none leading-relaxed bg-slate-800/30 text-gray-200 p-2 rounded border border-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 custom-scrollbar"
           placeholder={`Write your ${language} code here...`}
           style={{
             scrollbarWidth: "thin",

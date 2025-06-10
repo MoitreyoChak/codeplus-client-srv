@@ -40,7 +40,7 @@ const TestCases = ({ testCases, setTestCases }) => {
                         <button
                             key={index}
                             className={`flex items-center pl-4 pr-3 py-1 rounded ${selectedCase === index
-                                ? 'bg-gray-600 text-white'
+                                ? 'bg-gray-200 text-gray-700'
                                 : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                                 }`}
                             onClick={() => { setSelectedCase(index) }}
@@ -66,7 +66,7 @@ const TestCases = ({ testCases, setTestCases }) => {
                         type="text"
                         value={`${testCases[selectedCase]}`}
                         onChange={(e) => updateTestCase(e.target.value)}
-                        className="w-full bg-gray-900 text-gray-200 px-3 py-2 rounded border border-gray-700 focus:border-blue-500 focus:outline-none"
+                        className="w-full bg-slate-800/30 text-gray-300 px-3 py-2 rounded border border-gray-700 focus:border-blue-500 focus:outline-none"
                     />
                 </div>
             </div>
