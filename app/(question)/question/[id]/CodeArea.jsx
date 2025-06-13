@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 
 const CodeArea = () => {
-  const [language, setLanguage] = useState("C++");
+  const [language, setLanguage] = useState("Java");
   const [code, setCode] = useState("");
 
   const getDefaultTemplate = (lang) => {
-    console.log(lang)
+    console.log(lang);
     if (lang === "Java") {
       return 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}';
     } else if (lang === "C") {
@@ -27,8 +27,6 @@ const CodeArea = () => {
     }
   }, [language]);
 
-
-
   const saveToLocalStorage = () => {
     localStorage.setItem(language, code);
   };
@@ -46,7 +44,10 @@ const CodeArea = () => {
           <span className="text-sm text-gray-400">Language:</span>
           <select
             value={language}
-            onChange={(e) => { console.log(e.target.value); setLanguage(e.target.value) }}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setLanguage(e.target.value);
+            }}
             className="bg-gray-900 text-gray-200 px-3 py-1 rounded border border-gray-700"
           >
             <option>Java</option>
