@@ -119,7 +119,11 @@ const TestCases = ({ TCs }) => {
       <div className="space-y-4">
         <div>
           {testCases?.[selectedCase]?.map((tc, index) => {
-            if (index === 2) {
+            // if (index === 2) {
+            //   return;
+            // }
+            // if last index then simply return
+            if (index === testCases[selectedCase].length - 1) {
               return;
             }
 

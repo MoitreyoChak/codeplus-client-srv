@@ -77,29 +77,13 @@ import { questionApi } from "../../../../lib/backendApi.js";
 //   },
 // };
 
-const output = [
-  {
-    _id: "684547cf6a989aee88373b7d",
-    input: "2 3",
-    expectedOutput: "5",
-    actualOutput: "5",
-    isCorrect: true,
-  },
-  {
-    _id: "684547cf6a989aee88373b7e",
-    input: "7 8",
-    expectedOutput: "15",
-    actualOutput: "15",
-    isCorrect: true,
-  },
-];
-
 function Test() {
   const [isDragging, setIsDragging] = useState(false);
   const [isVerticalDragging, setIsVerticalDragging] = useState(false);
   const [splitPosition, setSplitPosition] = useState(50);
   const [verticalSplitPosition, setVerticalSplitPosition] = useState(50);
   //   const [solved, setSolved] = useState(new Set());
+  const [result, setResult] = useState();
 
   const containerRef = useRef(null);
   const rightPanelRef = useRef(null);
@@ -318,7 +302,11 @@ function Test() {
             className="p-4 font-mono overflow-auto"
             style={{ height: `${verticalSplitPosition}%` }}
           >
-            <CodeArea />
+            <CodeArea
+              testCases={question?.data.testcases}
+              questionTitle={question?.data.title}
+              setResult={setResult}
+            />
             {/* <CodeArea /> */}
           </div>
         </>
@@ -356,7 +344,7 @@ function Test() {
           {testCaseModal ? (
             <TestCases TCs={question?.data.testcases} />
           ) : (
-            <OutputArea output={output} />
+            <OutputArea result={result} />
           )}
         </div>
       </div>
