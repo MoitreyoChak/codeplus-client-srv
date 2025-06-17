@@ -14,6 +14,7 @@ const SignInPage = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log("Email:", email);
     const result = await signIn("credentials", {
       email,
       password,

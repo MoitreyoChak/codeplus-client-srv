@@ -306,6 +306,8 @@ function Test() {
               testCases={question?.data.testcases}
               questionTitle={question?.data.title}
               setResult={setResult}
+              tags={question?.data.tags}
+              difficulty={question?.data.difficulty}
             />
             {/* <CodeArea /> */}
           </div>

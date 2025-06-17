@@ -15,7 +15,7 @@ function Home() {
             className="border border-solid border-black rounded"
             onClick={() => {
               signOut({ redirect: false }).then(() => {
-                window.location.href = "/auth/signin";
+                window.location.href = "/signin";
                 // router.push("/auth/signin");
                 // router.reload();
               });

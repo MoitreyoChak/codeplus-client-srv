@@ -6,7 +6,13 @@ import { submissionApi } from "../../../../lib/backendApi.js";
 
 const userId = "6807e1102ef63fe470ecddbc";
 
-const CodeArea = ({ testCases, questionTitle, setResult }) => {
+const CodeArea = ({
+  testCases,
+  questionTitle,
+  setResult,
+  tags,
+  difficulty,
+}) => {
   const [language, setLanguage] = useState("java");
   const [code, setCode] = useState("");
 
@@ -54,6 +60,8 @@ const CodeArea = ({ testCases, questionTitle, setResult }) => {
         testcases: testCases,
         questionTitle,
         problemSetterName: "Moitreyo",
+        tags,
+        difficulty,
       });
       console.log("Submission successful:", response.data);
       return response.data;
